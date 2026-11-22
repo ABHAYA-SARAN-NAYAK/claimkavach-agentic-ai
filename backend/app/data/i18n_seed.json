@@ -1,0 +1,32 @@
+{
+  "en": {
+    "app_name": "ClaimKavach",
+    "tagline": "Don't accept the first 'No'.",
+    "honesty_strip": "Prototype · Synthetic data only · Not legal advice · Insurer & regulator portals are simulated",
+    "demo_chip": "AI responses scripted · logic & tools real",
+    "verdict_strong": "Strong case",
+    "verdict_possible": "Possible",
+    "verdict_valid": "Valid deduction",
+    "verdict_need_info": "Need more info"
+  },
+  "hi": {
+    "app_name": "क्लेमकवच",
+    "tagline": "पहली 'ना' को स्वीकार न करें।",
+    "honesty_strip": "प्रोटोटाइप · केवल सिंथेटिक डेटा · कानूनी सलाह नहीं · बीमाकर्ता और नियामक पोर्टल सिम्युलेटेड हैं",
+    "demo_chip": "एआई प्रतिक्रियाएं स्क्रिप्टेड हैं · तर्क और उपकरण वास्तविक हैं",
+    "verdict_strong": "मजबूत मामला",
+    "verdict_possible": "संभावित",
+    "verdict_valid": "उचित कटौती",
+    "verdict_need_info": "अधिक जानकारी चाहिए"
+  },
+  "ta": {
+    "app_name": "க்ளெய்ம்கவச்",
+    "tagline": "முதல் 'மறுப்பை' ஏற்காதீர்கள்.",
+    "honesty_strip": "மாதிரி மாதிரி · மாதிரித் தரவு மட்டுமே · சட்ட ஆலோசனை அல்ல · காப்பீட்டாளர் மற்றும் ஒழுங்குமுறை போர்ட்டல்கள் மாதிரி வடிவிலானவை",
+    "demo_chip": "AI பதில்கள் மாதிரி அமைக்கப்பட்டவை · தர்க்கமும் கருவிகளும் உண்மையானவை",
+    "verdict_strong": "வலுவான வழக்கு",
+    "verdict_possible": "சாத்தியமான வழக்கு",
+    "verdict_valid": "செல்லுபடியாகும் பிடித்தம்",
+    "verdict_need_info": "கூடுதல் தகவல் தேவை"
+  }
+}

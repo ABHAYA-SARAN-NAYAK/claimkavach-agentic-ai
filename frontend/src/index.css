@@ -1,0 +1,169 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource/jetbrains-mono';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Design system tokens: Calm confidence, human advocacy, editorial warmth */
+  --paper: #F7F3EC;
+  --hero-cream: #FBF1E6;
+  --surface: #FFFFFF;
+  --surface-warm: #FBF6EF;
+  --border: #E7E1D6;
+  --border-subtle: #EFEAE1;
+
+  /* Typography */
+  --text: #1F2420;
+  --text-2: #4D554F;
+  --text-3: #7B827C;
+  --text-inverse: #FFFFFF;
+
+  /* Evergreen (Primary) */
+  --evergreen-900: #12271E;
+  --evergreen-800: #183528;
+  --evergreen-700: #1F4D3A;
+  --evergreen-600: #276148;
+  --evergreen-500: #2E7356;
+  --evergreen-100: #DCEBDD;
+  --evergreen-50: #EEF5EE;
+
+  /* Clay (Accent) */
+  --clay-700: #9E371D;
+  --clay-600: #B8472A;
+  --clay-500: #C96A45;
+  --clay-400: #DE8663;
+  --clay-100: #F7E3D6;
+  --clay-50: #FBF0E7;
+
+  /* Sage & Warm Greys */
+  --sage: #768579;
+  --sage-100: #E4E9E5;
+  --sage-50: #F1F4F2;
+
+  /* Semantic */
+  --success: #2F8F5B;
+  --success-bg: #EAF6EE;
+  --success-text: #1B6A40;
+  --warning: #D9822B;
+  --warning-bg: #FCF2E7;
+  --warning-text: #995412;
+  --danger: #C2412D;
+  --danger-bg: #FCEEEB;
+  --danger-text: #912817;
+  --info: #3B6EA5;
+  --info-bg: #EFF4FA;
+  --info-text: #224974;
+
+  /* Subtle, almost invisible shadows per reference */
+  --shadow-xs: 0 1px 2px rgba(31, 36, 32, 0.04);
+  --shadow-sm: 0 1px 3px rgba(31, 36, 32, 0.06), 0 1px 2px rgba(31, 36, 32, 0.03);
+  --shadow-md: 0 4px 12px -2px rgba(31, 36, 32, 0.06), 0 2px 4px rgba(31, 36, 32, 0.03);
+  --shadow-lg: 0 12px 28px -6px rgba(31, 36, 32, 0.08);
+
+  /* Radius (10-14px cards, 10px buttons) */
+  --r-sm: 6px;
+  --r-btn: 10px;
+  --r-card: 14px;
+  --r-card-lg: 16px;
+  --r-full: 9999px;
+}
+
+.dark {
+  --paper: #121814;
+  --hero-cream: #17201B;
+  --surface: #1A221D;
+  --surface-warm: #1E2822;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.04);
+
+  --text: #EEF1EC;
+  --text-2: #B0B8B2;
+  --text-3: #768579;
+  --text-inverse: #121814;
+
+  --evergreen-900: #0D1A14;
+  --evergreen-800: #14281E;
+  --evergreen-700: #3E8F6C;
+  --evergreen-600: #4AA47D;
+  --evergreen-500: #5BB78F;
+  --evergreen-100: rgba(62, 143, 108, 0.2);
+  --evergreen-50: rgba(62, 143, 108, 0.1);
+
+  --clay-600: #E08A63;
+  --clay-500: #E99D79;
+  --clay-100: rgba(224, 138, 99, 0.2);
+  --clay-50: #261D18;
+
+  --sage: #8A978E;
+  --sage-100: rgba(138, 151, 142, 0.15);
+  --sage-50: rgba(138, 151, 142, 0.08);
+
+  --success: #45B075;
+  --success-bg: rgba(47, 143, 91, 0.16);
+  --success-text: #6AD39A;
+  --warning: #E89A4D;
+  --warning-bg: rgba(217, 130, 43, 0.16);
+  --warning-text: #FBBF7A;
+  --danger: #E26350;
+  --danger-bg: rgba(194, 65, 45, 0.16);
+  --danger-text: #FFA596;
+  --info: #5B8EC5;
+  --info-bg: rgba(59, 110, 165, 0.16);
+  --info-text: #96C1F1;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Large text accessibility mode */
+html.large-text {
+  font-size: 112.5%; /* 18px base */
+}
+
+/* Base styles */
+body {
+  font-family: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background-color: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tabular figures for financial numbers */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Monospace font for agent trace */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbars that stay subtle */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-3);
+}

@@ -1,0 +1,38 @@
+{
+  "scenario": "judge_demo",
+  "policy": {
+    "filename": "policy_sample.pdf",
+    "pages": 4,
+    "quotes": [
+      "The Sum Insured under this policy is \u20b95,00,000 per policy year on a family floater basis.",
+      "Room rent is covered up to \u20b95,000 per day. If a higher category room is opted for, all associated medical expenses shall be reduced in the same proportion (proportionate deduction).",
+      "No claim is payable for illness in the first 30 days of the first policy.",
+      "Pre-existing diseases are covered after 36 months of continuous coverage.",
+      "After 60 continuous months of coverage have been completed, no claim shall be contestable by the Insurer on grounds of non-disclosure or misrepresentation, except for proven fraud.",
+      "Consumables listed in Annexure I are not payable.",
+      "The Insurer shall acknowledge a complaint within 3 days and endeavour to resolve it within 15 days at grievance@meridian-health.example."
+    ]
+  },
+  "bill": {
+    "filename": "bill_sample.pdf",
+    "pages": 2,
+    "items_total": 240000,
+    "quotes": [
+      "Room charges (Single Deluxe Private)",
+      "Nursing & Patient Care Charges",
+      "Surgeon & Anaesthetist Professional Fees",
+      "Consumables (Gloves, surgical kits, PPE)"
+    ]
+  },
+  "letter": {
+    "filename": "letter_sample.pdf",
+    "pages": 2,
+    "deductions_total": 100000,
+    "quotes": [
+      "Claim partially repudiated: pre-existing condition (hypertension) not disclosed at proposal stage (Clause 4.2).",
+      "Proportionate deduction as room rent opted exceeds the eligible limit (Clause 3.2).",
+      "Non-payable consumables (Annexure I, Clause 6.1).",
+      "Ombudsman details are available on request."
+    ]
+  }
+}

@@ -1,0 +1,139 @@
+[
+  {
+    "id": "R_MORATORIUM",
+    "title": "Moratorium Period (60 Months)",
+    "plain_en": "After 60 continuous months of coverage, an insurer cannot dispute or reject a health claim on grounds of non-disclosure or pre-existing diseases, unless intentional fraud is proven.",
+    "plain_hi": "60 महीने के निरंतर कवरेज के बाद, बीमाकर्ता गैर-प्रकटीकरण के आधार पर दावे को खारिज नहीं कर सकता।",
+    "plain_ta": "60 மாத தொடர்ச்சியான கவரேஜிற்குப் பிறகு, முன்பே உள்ள நோயைக் கூறாமல் விட்டதாகக் கூறி காப்பீட்டாளர் உங்கள் க்ளெய்மை நிராகரிக்க முடியாது.",
+    "applies_to": "Policies with continuous renewals exceeding 60 months",
+    "params": {
+      "months": 60
+    },
+    "source_name": "IRDAI Master Circular on Health Insurance Business 2024",
+    "source_url": "https://irdai.gov.in",
+    "verified": false
+  },
+  {
+    "id": "R_PED_WAITING",
+    "title": "Pre-Existing Disease Waiting Period Cap (36 Months)",
+    "plain_en": "Pre-existing diseases declared at proposal are covered after a maximum waiting period of 36 months of continuous coverage.",
+    "plain_hi": "पहले से मौजूद बीमारियों के लिए अधिकतम 36 महीने की निरंतर प्रतीक्षा अवधि लागू होती है।",
+    "plain_ta": "முன்பே இருக்கும் நோய்களுக்கு அதிகபட்சமாக 36 மாத தொடர் பாலிசி காத்திருப்பு காலத்திற்குப் பிறகு கவரேஜ் கிடைக்கும்.",
+    "applies_to": "Pre-existing health conditions declared in proposal",
+    "params": {
+      "months": 36
+    },
+    "source_name": "IRDAI Master Circular on Health Insurance Business 2024",
+    "source_url": "https://irdai.gov.in",
+    "verified": false
+  },
+  {
+    "id": "R_CLAIM_SETTLE_DAYS",
+    "title": "Claim Settlement Timeline (30 Days)",
+    "plain_en": "Insurers must settle or reject reimbursement claims within 30 days of receiving all necessary documents. Delay attracts penal interest at Bank Rate + 2%.",
+    "plain_hi": "सभी आवश्यक दस्तावेज मिलने के 30 दिनों के भीतर दावे का निपटारा होना चाहिए, देरी पर ब्याज देय है।",
+    "plain_ta": "தேவையான ஆவணங்கள் கிடைத்த 30 நாட்களுக்குள் க்ளெய்ம் தீர்க்கப்பட வேண்டும்; தாமதத்திற்கு வட்டி வழங்கப்படும்.",
+    "applies_to": "Reimbursement claim submissions",
+    "params": {
+      "days": 30,
+      "interest_rate_above_bank": 2.0
+    },
+    "source_name": "IRDAI (Protection of Policyholders' Interests) Regulations 2017",
+    "source_url": "https://irdai.gov.in",
+    "verified": false
+  },
+  {
+    "id": "R_GRO_REPLY_DAYS",
+    "title": "Grievance Officer Reply Window (15 Days)",
+    "plain_en": "The Insurer's Grievance Redressal Officer (GRO) must resolve written policyholder complaints within 15 calendar days.",
+    "plain_hi": "बीमा कंपनी के शिकायत अधिकारी को 15 दिनों के भीतर शिकायत का समाधान करना अनिवार्य है।",
+    "plain_ta": "காப்பீட்டு குறைதீர்க்கும் அதிகாரி (GRO) 15 நாட்களுக்குள் உங்கள் புகார் மீது தீர்வு காண வேண்டும்.",
+    "applies_to": "Formal complaints submitted to Insurer Grievance Redressal Officer",
+    "params": {
+      "days": 15
+    },
+    "source_name": "IRDAI Grievance Redressal Guidelines",
+    "source_url": "https://irdai.gov.in",
+    "verified": false
+  },
+  {
+    "id": "R_OMBUDSMAN_ELIGIBILITY",
+    "title": "Insurance Ombudsman Approach Window",
+    "plain_en": "If the insurer rejects your complaint or fails to resolve it within 30 days, you can approach the Insurance Ombudsman within 1 year of the rejection.",
+    "plain_hi": "बीमाकर्ता द्वारा शिकायत खारिज करने या 30 दिन में जवाब न देने पर, 1 वर्ष के भीतर बीमा लोकपाल से संपर्क किया जा सकता है।",
+    "plain_ta": "காப்பீட்டாளர் மறுத்தாலோ அல்லது 30 நாட்களில் பதிலளிக்காவிட்டாலோ, 1 வருடத்திற்குள் நீங்கள் ஒம்புட்ஸ்மேனை அணுகலாம்.",
+    "applies_to": "Personal insurance claims up to Rs 50 Lakhs",
+    "params": {
+      "window_days": 365,
+      "insurer_wait_days": 30
+    },
+    "source_name": "Insurance Ombudsman Rules 2017",
+    "source_url": "https://cioins.co.in",
+    "verified": false
+  },
+  {
+    "id": "R_OMBUDSMAN_INSURER_RESPONSE",
+    "title": "7-Day Insurer Response Window at Ombudsman",
+    "plain_en": "Insurers must submit all relevant claim papers and statements to the Insurance Ombudsman within 7 days of notice, or face ex-parte orders.",
+    "plain_hi": "बीमा लोकपाल द्वारा नोटिस दिए जाने पर बीमा कंपनी को 7 दिनों के भीतर सभी दस्तावेज जमा करने होते हैं।",
+    "plain_ta": "ஒம்புட்ஸ்மேன் நோட்டீஸ் அனுப்பிய 7 நாட்களுக்குள் காப்பீட்டாளர் ஆவணங்களை சமர்ப்பிக்க வேண்டும்.",
+    "applies_to": "Complaints registered before Insurance Ombudsman",
+    "params": {
+      "days": 7
+    },
+    "source_name": "IRDAI Directive 2026 (Reported July 2026)",
+    "source_url": "https://irdai.gov.in",
+    "verified": false
+  },
+  {
+    "id": "R_NON_PAYABLE_LIST",
+    "title": "Consumables & Non-Payable Items",
+    "plain_en": "Consumable items (gloves, PPE, sanitisers) listed in IRDAI standard Annexure I non-payable items are deductible unless specific consumable rider cover is purchased.",
+    "plain_hi": "मानक सूची में शामिल उपभोग्य सामग्रियां (ग्लव्स, पीपीई) देय नहीं हैं, जब तक कि राइडर न हो।",
+    "plain_ta": "பாலிசியில் நுகர்பொருட்கள் ரைடர் இல்லையென்றால், கையுறைகள் மற்றும் பிற நுகர்பொருட்களுக்கான கழிவு செல்லுபடியாகும்.",
+    "applies_to": "Hospitalisation consumable item expenses",
+    "params": {},
+    "source_name": "IRDAI Guidelines on Standardization of Exclusions",
+    "source_url": "https://irdai.gov.in",
+    "verified": false
+  },
+  {
+    "id": "R_PROPORTIONATE_ROOM",
+    "title": "Proportionate Room Rent Deduction",
+    "plain_en": "If a policyholder chooses a room whose daily rate exceeds the policy limit, associated treatment and doctor fees are deducted in the same proportion.",
+    "plain_hi": "यदि कमरे का किराया पॉलिसी सीमा से अधिक है, तो संबंधित चिकित्सा शुल्क उसी अनुपात में कम किए जाते हैं।",
+    "plain_ta": "பாலிசி வரம்பை விட அதிக கட்டண அறையைத் தேர்வுசெய்தால், அதனுடன் தொடர்புடைய சிகிச்சை கட்டணங்களும் விகிதாசாரப்படி கழிக்கப்படும்.",
+    "applies_to": "Claims with room rent exceeding policy cap",
+    "params": {},
+    "source_name": "Policy Contract Specific Condition & IRDAI Guidelines",
+    "source_url": "https://irdai.gov.in",
+    "verified": false
+  },
+  {
+    "id": "R_SETTLEMENT_LETTER_ITEMISE",
+    "title": "Mandatory Itemised Rejection & Deduction",
+    "plain_en": "Insurers are strictly required to specify item-by-item reasons, cited clauses, and breakups of allowed and disallowed amounts in claim letters.",
+    "plain_hi": "बीमाकर्ताओं को क्लेम लेटर में प्रत्येक कटौती का सटीक कारण और क्लॉज लिखना अनिवार्य है।",
+    "plain_ta": "காப்பீட்டு நிறுவனங்கள் நிராகரிப்புக் கடிதத்தில் ஒவ்வொரு பிடித்தத்திற்கும் தனித்தனி காரணங்களை விவரிக்க வேண்டும்.",
+    "applies_to": "All health insurance claim settlement/rejection letters",
+    "params": {},
+    "source_name": "IRDAI Star Health Order Nov 2026",
+    "source_url": "https://irdai.gov.in",
+    "verified": false
+  },
+  {
+    "id": "R_BIMA_BHAROSA",
+    "title": "IRDAI Bima Bharosa Escalation",
+    "plain_en": "Policyholders can lodge complaints directly with the regulator through the Bima Bharosa portal (toll-free 155255 / 1800-4254-732, complaints@irdai.gov.in) if the insurer fails to respond.",
+    "plain_hi": "बीमाकर्ता द्वारा जवाब न मिलने पर बीमा भरोसा पोर्टल (155255) पर आईआरडीएआई में शिकायत दर्ज की जा सकती है।",
+    "plain_ta": "காப்பீட்டாளர் பதிலளிக்கவில்லை என்றால், பீமா பரோசா போர்டல் மூலம் IRDAI-யிடம் முறையிடலாம்.",
+    "applies_to": "Unresolved grievances after 15 days of GRO filing",
+    "params": {
+      "toll_free": "155255",
+      "email": "complaints@irdai.gov.in"
+    },
+    "source_name": "IRDAI Bima Bharosa Portal Guidelines",
+    "source_url": "https://bimabharosa.irdai.gov.in",
+    "verified": false
+  }
+]

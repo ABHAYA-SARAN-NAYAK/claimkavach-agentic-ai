@@ -1,0 +1,26 @@
+{
+  "name": "ClaimKavach",
+  "short_name": "ClaimKavach",
+  "description": "Autonomous digital advocate for Indian families disputing unfair health insurance claim rejections",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F3EC",
+  "theme_color": "#1F4D3A",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/shield-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/shield-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

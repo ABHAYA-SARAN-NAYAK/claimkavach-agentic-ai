@@ -1,0 +1,51 @@
+{
+  "brand_name": "ClaimKavach",
+  "tagline": "Insurance said No? Let's check if it was right.",
+  "subtext": "Upload your policy, hospital bill and rejection letter. ClaimKavach checks the reason, shows the true picture, and helps you fight for what you're entitled to.",
+  "honesty_strip": "Prototype · Synthetic data only · Not legal advice · Insurer and regulator portals are simulated",
+  "nav": {
+    "home": "Home",
+    "how_it_works": "How it works",
+    "impact": "Impact",
+    "faqs": "FAQs",
+    "get_started": "Start My Claim Review",
+    "open_claim": "Open my claim"
+  },
+  "hero": {
+    "chip": "AI-Powered Claim Support",
+    "title_line1": "Insurance said No?",
+    "title_line2": "Let's check if it was right.",
+    "start_btn": "Start My Claim Review",
+    "how_btn": "See how it works"
+  },
+  "claim": {
+    "greeting": "Good evening",
+    "subtitle": "Here's the latest on your health insurance claim.",
+    "amount_dispute": "Amount in Dispute",
+    "likely_recoverable": "Likely Recoverable",
+    "deductions_reviewed": "Deductions Reviewed",
+    "next_deadline": "Next Deadline",
+    "next_action": "Next Action",
+    "review_approve": "Review & Approve",
+    "tabs": {
+      "result": "Claim Analysis Result",
+      "evidence": "Evidence & Explanation",
+      "journey": "Case Journey",
+      "letters": "Letters & Replies",
+      "documents": "Documents"
+    }
+  },
+  "verdict": {
+    "strong_case": "Strong case",
+    "possible": "Possible",
+    "valid_deduction": "Valid deduction",
+    "need_info": "Need information"
+  },
+  "actions": {
+    "approve_send": "Approve & send",
+    "edit": "Edit",
+    "not_now": "Not now",
+    "back": "Back",
+    "continue": "Continue"
+  }
+}
