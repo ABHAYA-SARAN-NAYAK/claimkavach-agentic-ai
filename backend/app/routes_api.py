@@ -60,6 +60,7 @@ def health_check():
 def get_config():
     return {
         "model": settings.gemini_model,
+        "fallback_model": settings.gemini_fallback_model,
         "default_mode": settings.default_mode,
         "pacing": settings.demo_pacing,
         "has_env_key": bool(settings.gemini_api_key and settings.gemini_api_key.strip()),
@@ -68,20 +69,43 @@ def get_config():
     }
 
 @router.post("/settings/test-key")
-def test_gemini_key(x_gemini_key: Optional[str] = Header(None)):
+def test_gemini_key(
+    x_gemini_key: Optional[str] = Header(None),
+    x_gemini_model: Optional[str] = Header(None),
+    x_gemini_fallback_model: Optional[str] = Header(None)
+):
     key = x_gemini_key or settings.gemini_api_key
     if not key:
         raise HTTPException(status_code=400, detail="No Gemini API key provided.")
+    
+    primary = x_gemini_model or settings.gemini_model
+    backup = x_gemini_fallback_model or settings.gemini_fallback_model
+
     try:
         from google import genai
         start = time.time()
         client = genai.Client(api_key=key)
-        resp = client.models.generate_content(
-            model=settings.gemini_model,
-            contents="Say 'OK' in one word."
-        )
+        
+        # Try primary model
+        used_model = primary
+        try:
+            resp = client.models.generate_content(
+                model=primary,
+                contents="Say 'OK' in one word."
+            )
+        except Exception as exc:
+            err = str(exc).lower()
+            if ("429" in err or "quota" in err or "resource_exhausted" in err or "not found" in err or "404" in err) and backup != primary:
+                used_model = backup
+                resp = client.models.generate_content(
+                    model=backup,
+                    contents="Say 'OK' in one word."
+                )
+            else:
+                raise exc
+
         latency = round((time.time() - start) * 1000)
-        return {"ok": True, "latency_ms": latency, "text": resp.text}
+        return {"ok": True, "model": used_model, "latency_ms": latency, "text": resp.text}
     except Exception as exc:
         raise HTTPException(status_code=400, detail=f"Gemini API test failed: {exc}")
 

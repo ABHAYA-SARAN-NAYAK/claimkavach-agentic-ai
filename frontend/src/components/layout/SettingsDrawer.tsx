@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Key, Shield, Trash2, Download, Check, AlertTriangle, Moon, Sun, Type } from 'lucide-react';
+import { X, Key, Shield, Trash2, Download, Check, AlertTriangle, Moon, Sun, Type, Cpu } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
 import { useAppStore } from '../../lib/store';
@@ -21,11 +21,17 @@ export const SettingsDrawer: React.FC<SettingsDrawerProps> = ({ open, onClose })
     setLargeText,
     geminiKey,
     setGeminiKey,
+    geminiModel,
+    setGeminiModel,
+    geminiFallbackModel,
+    setGeminiFallbackModel,
   } = useAppStore();
 
   const [keyInput, setKeyInput] = useState(geminiKey);
+  const [modelInput, setModelInput] = useState(geminiModel);
+  const [fallbackModelInput, setFallbackModelInput] = useState(geminiFallbackModel);
   const [testingKey, setTestingKey] = useState(false);
-  const [keyStatus, setKeyStatus] = useState<'idle' | 'valid' | 'invalid'>('idle');
+  const [testResult, setTestResult] = useState<{ model: string; latency_ms: number } | null>(null);
   const [aiMode, setAiMode] = useState<'auto' | 'live' | 'scripted'>('auto');
   const [gmailDemo, setGmailDemo] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -38,14 +44,15 @@ export const SettingsDrawer: React.FC<SettingsDrawerProps> = ({ open, onClose })
       return;
     }
     setTestingKey(true);
-    setKeyStatus('idle');
+    setTestResult(null);
     try {
-      await testGeminiKey(keyInput.trim());
+      const res = await testGeminiKey(keyInput.trim(), modelInput.trim(), fallbackModelInput.trim());
       setGeminiKey(keyInput.trim());
-      setKeyStatus('valid');
-      toast.success('Gemini key verified successfully!');
+      setGeminiModel(modelInput.trim());
+      setGeminiFallbackModel(fallbackModelInput.trim());
+      setTestResult({ model: res.model || modelInput.trim(), latency_ms: res.latency_ms || 0 });
+      toast.success(`Key verified! Model: ${res.model} (${res.latency_ms}ms)`);
     } catch (err: any) {
-      setKeyStatus('invalid');
       toast.error(err.message || 'Key verification failed');
     } finally {
       setTestingKey(false);
@@ -172,40 +179,75 @@ export const SettingsDrawer: React.FC<SettingsDrawerProps> = ({ open, onClose })
             <div className="space-y-3 pt-4 border-t border-border">
               <h4 className="text-xs font-bold uppercase tracking-wider text-carbon-3">AI Intelligence</h4>
 
-              <div>
-                <label className="block text-xs font-medium text-carbon mb-1">
-                  Google Gemini API Key (100% Free Tier)
-                </label>
-                <div className="flex gap-2">
-                  <Input
-                    type="password"
-                    placeholder="AIzaSy..."
-                    value={keyInput}
-                    onChange={(e) => setKeyInput(e.target.value)}
-                    className="flex-1 text-xs font-mono"
-                  />
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    loading={testingKey}
-                    onClick={handleTestKey}
-                    className="text-xs whitespace-nowrap"
-                  >
-                    Test & Save
-                  </Button>
+              <div className="space-y-3">
+                <div>
+                  <label className="block text-xs font-medium text-carbon mb-1">
+                    Google Gemini API Key (100% Free Tier)
+                  </label>
+                  <div className="flex gap-2">
+                    <Input
+                      type="password"
+                      placeholder="AIzaSy..."
+                      value={keyInput}
+                      onChange={(e) => setKeyInput(e.target.value)}
+                      className="flex-1 text-xs font-mono"
+                    />
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      loading={testingKey}
+                      onClick={handleTestKey}
+                      className="text-xs whitespace-nowrap"
+                    >
+                      Test Key
+                    </Button>
+                  </div>
+                  <p className="text-[11px] text-carbon-3 mt-1.5 leading-relaxed">
+                    Free key: <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noreferrer" className="text-evergreen-700 underline font-medium">aistudio.google.com</a>. Free limits change, so check AI Studio if a model stops working.
+                  </p>
                 </div>
-                <p className="text-[11px] text-carbon-3 mt-1.5 leading-relaxed">
-                  Keys are stored exclusively in your browser memory/storage and never sent to our database.
-                  Get a free key from{' '}
-                  <a
-                    href="https://aistudio.google.com/app/apikey"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-evergreen-700 underline font-medium"
-                  >
-                    Google AI Studio
-                  </a>.
-                </p>
+
+                {/* Model Configuration */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  <div>
+                    <label className="block text-[11px] font-semibold text-carbon mb-1">
+                      Primary Model
+                    </label>
+                    <Input
+                      value={modelInput}
+                      onChange={(e) => {
+                        setModelInput(e.target.value);
+                        setGeminiModel(e.target.value);
+                      }}
+                      placeholder="gemini-2.5-flash"
+                      className="text-xs font-mono"
+                    />
+                    <span className="text-[10px] text-carbon-3">Lekha, Nyaya & Doot</span>
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] font-semibold text-carbon mb-1">
+                      Backup Model
+                    </label>
+                    <Input
+                      value={fallbackModelInput}
+                      onChange={(e) => {
+                        setFallbackModelInput(e.target.value);
+                        setGeminiFallbackModel(e.target.value);
+                      }}
+                      placeholder="gemini-2.5-flash-lite"
+                      className="text-xs font-mono"
+                    />
+                    <span className="text-[10px] text-carbon-3">Auto quota fallback</span>
+                  </div>
+                </div>
+
+                {testResult && (
+                  <div className="p-2.5 rounded-btn bg-success-bg/60 border border-success/30 text-xs text-success flex items-center justify-between">
+                    <span className="font-semibold">Connected to {testResult.model}</span>
+                    <span className="font-mono text-[11px]">{testResult.latency_ms} ms</span>
+                  </div>
+                )}
               </div>
 
               <div className="space-y-1.5 pt-2">

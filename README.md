@@ -1,25 +1,31 @@
-# ClaimKavach — Your Family's Shield Against Unfair Health-Insurance Rejections
+# ClaimKavach (क्लेमकवच) 🛡️
 
-> **"Don't accept the first 'No'."**
-> An autonomous multi-agent AI web application (Lekha, Nyaya, Doot, Rakshak) that analyzes insurance policy wording, hospital bills, and rejection letters to fight unfair claim deductions for Indian policyholders.
+**Autonomous Health Insurance Claim Dispute Defense Agent for Indian Families**
 
-Built for **IDEA//FORGE Online Hackathon — Track 1 (Civic Pulse, Digital Governance)**, Problem Idea 3 (Autonomous Public Service & Bureaucracy Execution Agent).
+ClaimKavach is a multi-agent AI system designed to analyze health insurance claim rejections, compute wrongful deductions, verify policy clauses with bounding-box evidence, and execute statutory grievance escalations under IRDAI regulations.
 
 ---
 
-## 🛡️ Key Features
+## 🤖 Gemini AI Models & Free Tier Architecture
 
-- **4 Specialized Agents**:
-  - **Lekha (Reader)**: Extracts policy clauses, bill items, and rejection line items from PDFs with deterministic cross-verification.
-  - **Nyaya (Judge)**: Determines validity line by line (`strong_case`, `possible`, `valid_deduction`, `need_info`) using strict computational tools.
-  - **Doot (Escalator)**: Prepares formal grievance letters across a 5-step escalation ladder (GRO → Bima Bharosa → Ombudsman → Consumer Commission).
-  - **Rakshak (Guardian)**: Enforces strict user consent, PII redaction, quote verification, and tone guardrails.
-- **Virtual-Clock Time Machine**: Advance time (+1, +3, +7, +15, +30 days) to simulate deadlines, insurer replies, and automatic escalations.
-- **Simulated Twins**: In-process simulated insurer grievance mailbox (`/twin/insurer`) and regulator portal (`/twin/regulator`).
-- **Interactive Evidence Viewer**: Split-screen document inspection with bounding box highlight overlays for exact cited clauses.
-- **Judge Mode & One-Click Demo**: 60-second end-to-end demo flow for hackathon judges with customizable pacing and insurer behavior.
-- **Multi-language Support**: English, हिन्दी (Hindi), and தமிழ் (Tamil).
-- **100% Free-Tier & Privacy Preserving**: Zero paid APIs or required credit cards. Synthetic data only.
+ClaimKavach operates on a resilient dual-model strategy using Google's free-tier Gemini models:
+- **Primary Model**: `gemini-2.5-flash` — Used by Lekha (Reader), Nyaya (Judge), and Doot (Escalator) for deep policy clause extraction and statutory legal reasoning.
+- **Backup Model**: `gemini-2.5-flash-lite` — Automatically engaged if the primary model hits HTTP 429 / quota limits, or is temporarily unavailable.
+- **Offline Deterministic Fallback**: If network or quota limits are completely exhausted, ClaimKavach transparently activates the scripted fallback factory so the demonstration and user dispute workflow never crashes.
+- **Zero Pro Models**: Completely compliant with 100% free-tier constraints (no credit card required).
+
+### Getting a Free Gemini API Key
+1. Visit [Google AI Studio](https://aistudio.google.com/app/apikey).
+2. Click **Create API Key**.
+3. Set in your `.env` or paste directly into the in-app **Settings Drawer**.
+
+### Changing Models
+You can customize models in `.env` or in real-time inside the **Settings Drawer**:
+```env
+GEMINI_MODEL=gemini-2.5-flash
+GEMINI_FALLBACK_MODEL=gemini-2.5-flash-lite
+GEMINI_RPM=8
+```
 
 ---
 
@@ -48,15 +54,15 @@ The app will be available at **http://localhost:8000**.
 
 Copy `.env.example` to `.env`:
 ```env
-GEMINI_API_KEY=               # Optional: Gemini API key for Live AI mode (free tier)
-GEMINI_MODEL=gemini-2.5-flash # Default model
+GEMINI_API_KEY=               # Optional: Free Gemini API key from aistudio.google.com
+GEMINI_MODEL=gemini-2.5-flash # Primary model for Lekha, Nyaya, Doot
+GEMINI_FALLBACK_MODEL=gemini-2.5-flash-lite # Backup model for quota/rate limit retry
 GEMINI_RPM=8                  # Rate limit per minute
 DEFAULT_MODE=auto             # 'auto', 'demo', or 'live'
 DEMO_START_DATE=2026-09-08    # Initial virtual date
-DEMO_PACING=1.0               # Simulation speed multiplier
 PORT=8000                     # Port to run on
 ```
-*Note: If no Gemini API key is provided, ClaimKavach runs seamlessly in **Demo Simulation Mode** with real tools, state machine, twin engine, and virtual clock.*
+*Note: If no Gemini API key is provided, ClaimKavach runs seamlessly in **Demo Simulation Mode** with real PyMuPDF highlights, calculation tools, state machine, twin engine, and virtual clock.*
 
 ---
 
@@ -70,4 +76,4 @@ pytest backend/tests -v
 ---
 
 ## 🏛️ Disclaimer
-Prototype built for demonstration purposes. Uses synthetic data only. Not legal advice. Insurer & regulator portals are simulated.
+Prototype built for demonstration purposes. Uses synthetic data only. Not legal advice. Insurer and regulator portals are simulated.

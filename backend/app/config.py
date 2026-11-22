@@ -19,6 +19,7 @@ UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
 class Settings(BaseModel):
     gemini_api_key: str | None = os.getenv("GEMINI_API_KEY", None)
     gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    gemini_fallback_model: str = os.getenv("GEMINI_FALLBACK_MODEL", "gemini-2.5-flash-lite")
     gemini_rpm: int = int(os.getenv("GEMINI_RPM", "8"))
     default_mode: str = os.getenv("DEFAULT_MODE", "auto")
     demo_start_date: str = os.getenv("DEMO_START_DATE", "2026-09-08")
