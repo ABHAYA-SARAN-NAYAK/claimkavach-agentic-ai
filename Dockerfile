@@ -27,4 +27,4 @@ COPY --from=frontend-builder /build/frontend/dist ./frontend/dist
 RUN python -m backend.app.tools.make_samples
 
 EXPOSE 8000
-CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
